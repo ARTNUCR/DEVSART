@@ -12,6 +12,7 @@
 
 ## Archivos
 - `index.html`: secciones en este orden: navbar fijo + menú móvil a pantalla completa, hero (`#inicio`), sobre mí (`#sobre-mi`), proyectos (`#proyectos`, con `#opticore`), stack (`#stack`), experiencia (`#experiencia`), cómo trabajo (`#como-trabajo`), contacto (`#contacto`, con formulario a WhatsApp), footer.
+- `404.html`: página de error que Netlify sirve sola para rutas inexistentes. Usa rutas absolutas (`/css/style.css`, `/img/...`) porque puede servirse desde cualquier ruta; por eso en WAMP (`localhost/devsart`) no se ve con estilos, es normal.
 - La configuración de Tailwind (colores `base`, `surface`, `raised`, `fg`, `muted`, `violet`, `cyan`, `line` y fuentes) va en un `<script>` dentro del `<head>` de `index.html`, justo después del CDN.
 - `css/style.css`: lo que Tailwind no cubre (`.reveal`, `.split`, `.btn`, `.btn-primary`, `.btn-secondary`, `.label`, `.section-title`, `.serif`, `.chip`, `.pulse`, `.spotlight`, `.mock`, `.skel`, `.bars`, `.tech`, `.field`, `.contact-row`, menú móvil, barra de progreso).
 - `js/main.js`: objeto **`CONFIG`** al inicio (WhatsApp, email, GitHub, LinkedIn, Instagram, CV, disponibilidad). Los enlaces vacíos se ocultan solos. Además: links `[data-wa]`, menú móvil, scroll suave con compensación del navbar, sección activa, titular palabra por palabra, contadores, spotlight, parallax sutil, barra de progreso y formulario → WhatsApp.
@@ -54,4 +55,4 @@
 
 ## Contacto
 - WhatsApp: 55 6209 4886 · Instagram: @arturocruz0
-- Footer: "© 2026 DevsArt - Hecho en CDMX"
+- Footer centrado: "© 2026 DevsArt. Todos los derechos reservados." Sin badges de terceros (Netlify no inyecta ninguno).

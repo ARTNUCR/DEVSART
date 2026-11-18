@@ -8,6 +8,7 @@ Desarrollador de software e Ingeniero en Sistemas Computacionales · Creador de 
 
 ```
 devsart/
+├── 404.html        # Página de error para direcciones que no existen (Netlify la usa sola)
 ├── index.html      # Toda la página (navbar, hero, sobre mí, proyectos, stack, experiencia, cómo trabajo, contacto, footer)
 ├── css/style.css   # Estilos personalizados (cards, botones, animaciones, formulario)
 ├── js/main.js      # CONFIG de contacto, menú móvil, scroll suave, animaciones, formulario a WhatsApp
