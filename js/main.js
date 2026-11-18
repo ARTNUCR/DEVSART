@@ -4,8 +4,8 @@
    ========================================================================= */
 const CONFIG = {
   whatsapp: '525562094886',                     // 52 + 10 dígitos, sin espacios
-  email: '',                                    // ej. 'tucorreo@dominio.com'
-  github: '',                                   // ej. 'https://github.com/tu-usuario'
+  email: 'arturonunc_@outlook.com',
+  github: 'https://github.com/ARTNUCR',
   linkedin: '',                                 // ej. 'https://www.linkedin.com/in/tu-perfil'
   instagram: 'https://instagram.com/arturocruz0',
   cv: '',                                       // ruta a un PDF real, ej. 'docs/cv-arturo-nunez.pdf'
