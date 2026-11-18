@@ -1,29 +1,49 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es-MX">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DevsArt · Arturo Núñez Cruz | Páginas y sistemas que sí venden</title>
-  <meta name="description" content="Arturo Núñez Cruz, Desarrollador Full-Stack y Fundador de DevsArt. Creador de OptiCore, SaaS para ópticas. Páginas web y sistemas a medida desde CDMX para todo México.">
-  <meta name="theme-color" content="#0B132B">
-  <meta property="og:title" content="DevsArt · Páginas y sistemas que sí venden">
-  <meta property="og:description" content="Arturo Núñez Cruz, Desarrollador Full-Stack y Fundador de DevsArt. Creador de OptiCore, SaaS para ópticas.">
+  <title>Arturo Núñez · Desarrollador de software y fundador de OPTICORE</title>
+  <meta name="description" content="Arturo Núñez Cruz, Ingeniero en Sistemas Computacionales. Desarrollo backend, full stack y productos SaaS. Creador de OPTICORE, SaaS en producción para ópticas.">
+  <meta name="author" content="Arturo Núñez Cruz">
+  <meta name="theme-color" content="#08090D">
+  <meta name="color-scheme" content="dark">
+  <link rel="canonical" href="https://devsart.netlify.app/">
+
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://devsart.netlify.app/">
   <meta property="og:site_name" content="DevsArt">
   <meta property="og:locale" content="es_MX">
+  <meta property="og:title" content="Arturo Núñez · Construyo software que resuelve problemas reales">
+  <meta property="og:description" content="Ingeniero en Sistemas Computacionales. Backend, full stack y productos SaaS. Creador de OPTICORE, en producción con 5 ópticas.">
   <meta property="og:image" content="https://devsart.netlify.app/img/og-devsart.jpg">
   <meta property="og:image:width" content="630">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Logo de DevsArt, desarrollo web">
+  <meta property="og:image:alt" content="DevsArt · Arturo Núñez, desarrollo de software">
   <meta name="twitter:card" content="summary">
-  <link rel="canonical" href="https://devsart.netlify.app/">
+  <meta name="twitter:title" content="Arturo Núñez · Construyo software que resuelve problemas reales">
+  <meta name="twitter:description" content="Backend, full stack y productos SaaS. Creador de OPTICORE.">
+  <meta name="twitter:image" content="https://devsart.netlify.app/img/og-devsart.jpg">
+
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arturo Núñez Cruz",
+    "jobTitle": "Desarrollador de software · Ingeniero en Sistemas Computacionales",
+    "url": "https://devsart.netlify.app/",
+    "image": "https://devsart.netlify.app/img/arturo-ceo.jpg",
+    "address": { "@type": "PostalAddress", "addressLocality": "Ciudad de México", "addressCountry": "MX" },
+    "sameAs": ["https://instagram.com/arturocruz0"]
+  }
+  </script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;600&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -31,17 +51,19 @@
       theme: {
         extend: {
           colors: {
-            ink: '#0B132B',     // fondo principal
-            card: '#1C2541',    // cards oscuras
-            line: '#3A506B',    // bordes / textos secundarios
-            sky: '#5BC0DE',     // azul primario
-            champ: '#F4D6B0',   // champagne
-            cta: '#D97706',     // botones principales
-            ctaHover: '#F59E0B',
+            base: '#08090D',     // fondo principal
+            surface: '#11131A',  // superficie secundaria
+            raised: '#171A23',   // superficie elevada
+            fg: '#F4F4F5',       // texto principal
+            muted: '#9295A1',    // texto secundario
+            violet: '#8B5CF6',   // acento principal
+            cyan: '#38BDF8',     // acento secundario
+            line: 'rgba(255,255,255,0.09)', // bordes
           },
           fontFamily: {
-            sans: ['Inter', 'system-ui', 'sans-serif'],
-            display: ['Poppins', 'Inter', 'sans-serif'],
+            sans: ['Geist', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['"Geist Mono"', 'ui-monospace', 'monospace'],
+            serif: ['"Instrument Serif"', 'Georgia', 'serif'],
           },
         },
       },
@@ -50,547 +72,727 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="font-sans text-white/70 antialiased">
+<body class="font-sans antialiased">
+  <a href="#main" class="skip-link">Saltar al contenido</a>
+  <div id="progress" aria-hidden="true"></div>
 
-  <!-- Iconos reutilizables -->
+  <!-- Iconos (Lucide) reutilizables -->
   <svg width="0" height="0" class="absolute" aria-hidden="true">
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-db" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5"/><path d="M3 12a9 3 0 0 0 18 0"/></g></symbol>
+    <symbol id="i-mail" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></g></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></g></symbol>
+    <symbol id="i-linkedin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></g></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/></g></symbol>
     <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.48-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.69.63.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.41.25-.69.25-1.29.17-1.41-.07-.12-.27-.2-.57-.35zM12.04 21.5h-.01a9.45 9.45 0 0 1-4.82-1.32l-.35-.21-3.58.94.96-3.49-.23-.36a9.43 9.43 0 0 1-1.45-5.03c0-5.22 4.25-9.47 9.48-9.47 2.53 0 4.91.99 6.7 2.78a9.41 9.41 0 0 1 2.77 6.7c0 5.22-4.25 9.46-9.47 9.46zm8.06-17.53A11.33 11.33 0 0 0 12.04.63C5.76.63.65 5.74.65 12.02c0 2.01.52 3.97 1.52 5.69L.55 23.6l6.04-1.58a11.36 11.36 0 0 0 5.44 1.39h.01c6.28 0 11.39-5.11 11.39-11.39 0-3.04-1.19-5.9-3.33-8.05z"/></symbol>
-    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M20 6 9 17l-5-5"/></symbol>
-    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 5l7 7-7 7"/></symbol>
-    <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95L12 2.5z"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M12 18v-6"/><path d="m9 15 3 3 3-3"/></g></symbol>
   </svg>
 
   <!-- ============ NAVBAR ============ -->
-  <header id="navbar" class="fixed inset-x-0 top-0 z-50 border-b border-transparent transition-all duration-300">
-    <nav class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:h-20 lg:px-8">
-      <a href="#inicio" class="flex shrink-0 items-center" aria-label="DevsArt, ir al inicio">
-        <img src="img/logo-devsart.png" alt="DevsArt · Desarrollo web" width="360" height="120" class="h-10 w-auto sm:h-12">
+  <header id="navbar" class="fixed inset-x-0 top-0 z-50 border-b border-transparent">
+    <nav class="mx-auto flex h-16 max-w-[1240px] items-center justify-between px-4 sm:px-6 lg:px-8" aria-label="Principal">
+      <a href="#inicio" class="flex shrink-0 items-center" aria-label="Arturo Núñez · DevsArt, ir al inicio">
+        <img src="img/logo-devsart.png" alt="DevsArt" width="360" height="120" class="h-9 w-auto">
       </a>
 
-      <div class="hidden items-center gap-9 md:flex">
-        <a href="#servicios" class="nav-link">Servicios</a>
-        <a href="#trabajos" class="nav-link">Trabajos</a>
-        <a href="#acerca" class="nav-link">Acerca de mí</a>
-        <a href="#cotizar" class="nav-link">Cotizar</a>
+      <div class="hidden items-center gap-7 lg:flex">
+        <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+        <a href="#proyectos" class="nav-link">Proyectos</a>
+        <a href="#stack" class="nav-link">Stack</a>
+        <a href="#experiencia" class="nav-link">Experiencia</a>
+        <a href="#como-trabajo" class="nav-link">Cómo trabajo</a>
       </div>
 
       <div class="flex items-center gap-2">
-        <a href="#cotizar" class="btn-cta rounded-full px-5 py-2.5 text-sm font-semibold text-white">Cotizar</a>
-        <button id="menuBtn" class="grid h-10 w-10 place-items-center rounded-full text-white md:hidden" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
-          <svg id="menuIcon" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+        <a href="#contacto" class="btn btn-primary !h-9 !rounded-lg !px-4 text-sm">Contacto</a>
+        <button id="menuBtn" type="button" class="grid h-9 w-9 place-items-center rounded-lg border border-line text-fg lg:hidden" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="menuIcon" class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></svg>
         </button>
       </div>
     </nav>
-
-    <div id="mobileMenu" class="hidden border-t border-line/40 bg-ink/95 backdrop-blur-xl md:hidden">
-      <div class="flex flex-col px-4 py-4">
-        <a href="#servicios" class="mobile-link rounded-xl px-4 py-3 text-base font-medium text-white hover:bg-card">Servicios</a>
-        <a href="#trabajos" class="mobile-link rounded-xl px-4 py-3 text-base font-medium text-white hover:bg-card">Trabajos</a>
-        <a href="#acerca" class="mobile-link rounded-xl px-4 py-3 text-base font-medium text-white hover:bg-card">Acerca de mí</a>
-        <a href="#cotizar" class="mobile-link rounded-xl px-4 py-3 text-base font-medium text-white hover:bg-card">Cotizar</a>
-      </div>
-    </div>
   </header>
 
-  <main>
+  <!-- Menú móvil a pantalla completa -->
+  <div id="mobileMenu" class="fixed inset-0 z-40 bg-base/95 backdrop-blur-xl lg:hidden" aria-hidden="true">
+    <nav class="flex h-full flex-col justify-between px-6 pb-10 pt-24" aria-label="Menú móvil">
+      <div class="flex flex-col">
+        <a href="#sobre-mi" class="m-link flex items-baseline justify-between border-b border-line py-4 text-3xl font-semibold tracking-tight">Sobre mí <span class="font-mono text-xs text-muted">01</span></a>
+        <a href="#proyectos" class="m-link flex items-baseline justify-between border-b border-line py-4 text-3xl font-semibold tracking-tight">Proyectos <span class="font-mono text-xs text-muted">02</span></a>
+        <a href="#stack" class="m-link flex items-baseline justify-between border-b border-line py-4 text-3xl font-semibold tracking-tight">Stack <span class="font-mono text-xs text-muted">03</span></a>
+        <a href="#experiencia" class="m-link flex items-baseline justify-between border-b border-line py-4 text-3xl font-semibold tracking-tight">Experiencia <span class="font-mono text-xs text-muted">04</span></a>
+        <a href="#como-trabajo" class="m-link flex items-baseline justify-between border-b border-line py-4 text-3xl font-semibold tracking-tight">Cómo trabajo <span class="font-mono text-xs text-muted">05</span></a>
+        <a href="#contacto" class="m-link flex items-baseline justify-between border-b border-line py-4 text-3xl font-semibold tracking-tight">Contacto <span class="font-mono text-xs text-muted">06</span></a>
+      </div>
+      <p class="label">Arturo Núñez · CDMX</p>
+    </nav>
+  </div>
+
+  <main id="main">
     <!-- ============ HERO ============ -->
-    <section id="inicio" class="relative overflow-hidden pt-28 pb-20 sm:pt-36 lg:pt-44 lg:pb-28">
-      <div class="grid-bg pointer-events-none absolute inset-0"></div>
-      <div class="glow-sky pointer-events-none absolute -top-40 left-1/2 h-[600px] w-[600px] -translate-x-1/2"></div>
-      <div class="glow-champ pointer-events-none absolute top-60 -right-40 h-[500px] w-[500px]"></div>
+    <section id="inicio" class="relative overflow-hidden pt-28 sm:pt-32 lg:pt-36">
+      <div class="dot-grid pointer-events-none absolute inset-0"></div>
+      <div class="aura pointer-events-none absolute -right-40 -top-40 h-[640px] w-[640px]"></div>
+      <div class="aura-cyan pointer-events-none absolute -left-60 top-80 h-[520px] w-[520px]"></div>
 
-      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="mx-auto max-w-4xl text-center">
-          <div class="reveal mb-6 inline-flex items-center gap-2 rounded-full border border-line/60 bg-card/60 px-4 py-1.5 text-xs font-medium text-champ sm:text-sm">
-            <span class="relative flex h-2 w-2"><span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-sky opacity-75"></span><span class="relative inline-flex h-2 w-2 rounded-full bg-sky"></span></span>
-            Disponible para nuevos proyectos · CDMX
-          </div>
-
-          <h1 class="reveal font-display text-[2.1rem] font-bold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-[4.2rem]" data-delay="1">
-            Hago páginas y sistemas <span class="text-gradient">que sí venden.</span>
-            <span class="mt-3 block text-xl font-semibold leading-snug text-white/55 sm:text-2xl lg:text-3xl">Sin plantillas aburridas, hechos para tu negocio.</span>
-          </h1>
-
-          <p class="reveal mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white/60 sm:text-lg" data-delay="2">
-            <span class="font-semibold text-white">Arturo Núñez Cruz</span> - Desarrollador Full-Stack &amp; Fundador de DevsArt <span class="text-line">|</span> Creador de <span class="text-sky">OptiCore</span>, SaaS para ópticas
+      <div class="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <div class="reveal flex flex-wrap items-center gap-x-4 gap-y-2">
+          <p class="label">Arturo Núñez — Ingeniero en Sistemas Computacionales</p>
+          <!-- Se muestra solo si CONFIG.availability está definido en js/main.js -->
+          <p id="availability" class="hidden items-center gap-2 rounded-full border border-line bg-white/[.03] px-3 py-1 text-xs text-fg" role="status">
+            <span class="pulse"></span><span data-availability-text></span>
           </p>
+        </div>
 
-          <div class="reveal mt-9 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4" data-delay="3">
-            <a href="#" data-wa="Hola Arturo, vi tu página DevsArt y quiero cotizar un proyecto." class="btn-cta inline-flex items-center justify-center gap-2.5 rounded-full px-7 py-4 text-base font-semibold text-white">
-              <svg class="h-5 w-5"><use href="#i-wa"/></svg>
-              Cotizar por WhatsApp
-            </a>
-            <a href="#trabajos" class="btn-sky inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-base font-semibold">
-              Ver OptiCore
-              <svg class="h-4 w-4"><use href="#i-arrow"/></svg>
-            </a>
+        <div class="grid items-center gap-14 lg:grid-cols-12 lg:gap-10">
+          <div class="lg:col-span-7">
+            <h1 class="split display text-balance mt-7 text-[2.85rem] sm:text-6xl lg:text-[5.1rem]" data-split>
+              Construyo software que resuelve <span class="serif font-normal text-[1.08em] text-violet">problemas reales.</span>
+            </h1>
+
+            <p class="reveal text-pretty mt-8 max-w-xl text-lg leading-relaxed text-muted sm:text-xl" data-delay="2">
+              Desarrollador de software e ingeniero en sistemas. Transformo ideas y procesos de negocio en productos digitales, sistemas empresariales y soluciones SaaS.
+            </p>
+
+            <div class="reveal mt-10 flex flex-col gap-3 sm:flex-row" data-delay="3">
+              <a href="#proyectos" class="btn btn-primary">
+                Explorar proyectos
+                <svg class="arrow h-4 w-4"><use href="#i-arrow"/></svg>
+              </a>
+              <a href="#contacto" class="btn btn-secondary">Hablemos</a>
+            </div>
+
+            <ul class="reveal mt-12 grid max-w-lg grid-cols-1 gap-x-8 gap-y-3 border-t border-line pt-6 font-mono text-[13px] text-muted min-[400px]:grid-cols-2" data-delay="4" aria-label="Especialidades">
+              <li class="flex items-center gap-2"><span class="h-1 w-1 rounded-full bg-violet"></span>Backend Development</li>
+              <li class="flex items-center gap-2"><span class="h-1 w-1 rounded-full bg-violet"></span>Full Stack Development</li>
+              <li class="flex items-center gap-2"><span class="h-1 w-1 rounded-full bg-cyan"></span>Software Engineering</li>
+              <li class="flex items-center gap-2"><span class="h-1 w-1 rounded-full bg-cyan"></span>SaaS Development</li>
+            </ul>
           </div>
 
-          <div class="reveal mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm text-white/60" data-delay="3">
-            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-sky"><use href="#i-check"/></svg>Experiencia real en mostrador</span>
-            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-sky"><use href="#i-check"/></svg>10 sucursales en producción</span>
-            <span class="flex items-center gap-2"><svg class="h-4 w-4 text-sky"><use href="#i-check"/></svg>Trato directo conmigo</span>
+          <!-- Visual: arquitectura de un SaaS multi-cliente (ilustrativo) -->
+          <div class="reveal lg:col-span-5" data-delay="2">
+            <figure id="heroVisual" class="mock relative mx-auto max-w-[460px] will-change-transform">
+              <div class="mock-bar"><i></i><i></i><i></i><span class="ml-2 font-mono text-[11px] text-muted">opticore / arquitectura</span></div>
+              <svg id="archSvg" viewBox="0 0 420 380" class="block h-auto w-full" role="img" aria-labelledby="archTitle">
+                <title id="archTitle">Diagrama ilustrativo: cinco ópticas conectadas a una misma API, servicios y base de datos</title>
+                <defs>
+                  <linearGradient id="g-line" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8B5CF6"/><stop offset="1" stop-color="#38BDF8"/></linearGradient>
+                </defs>
+                <g fill="none" stroke="rgba(255,255,255,.12)" stroke-width="1">
+                  <path id="p1" d="M50 54 C50 100 210 92 210 130"/>
+                  <path id="p2" d="M130 54 C130 96 210 96 210 130"/>
+                  <path id="p3" d="M210 54 L210 130"/>
+                  <path id="p4" d="M290 54 C290 96 210 96 210 130"/>
+                  <path id="p5" d="M370 54 C370 100 210 92 210 130"/>
+                  <path id="p6" d="M210 176 C210 202 115 198 115 225"/>
+                  <path id="p7" d="M210 176 C210 202 305 198 305 225"/>
+                  <path id="p8" d="M115 269 C115 292 180 286 180 306"/>
+                  <path id="p9" d="M305 269 C305 292 240 286 240 306"/>
+                </g>
+                <!-- Ópticas -->
+                <g font-family="Geist Mono, monospace" font-size="10" text-anchor="middle">
+                  <g><rect x="26" y="26" width="48" height="28" rx="7" fill="#171A23" stroke="rgba(255,255,255,.14)"/><text x="50" y="44" fill="#F4F4F5">01</text></g>
+                  <g><rect x="106" y="26" width="48" height="28" rx="7" fill="#171A23" stroke="rgba(255,255,255,.14)"/><text x="130" y="44" fill="#F4F4F5">02</text></g>
+                  <g><rect x="186" y="26" width="48" height="28" rx="7" fill="#171A23" stroke="rgba(255,255,255,.14)"/><text x="210" y="44" fill="#F4F4F5">03</text></g>
+                  <g><rect x="266" y="26" width="48" height="28" rx="7" fill="#171A23" stroke="rgba(255,255,255,.14)"/><text x="290" y="44" fill="#F4F4F5">04</text></g>
+                  <g><rect x="346" y="26" width="48" height="28" rx="7" fill="#171A23" stroke="rgba(255,255,255,.14)"/><text x="370" y="44" fill="#F4F4F5">05</text></g>
+                  <text x="210" y="16" fill="#9295A1" font-size="9" letter-spacing="1.5">ÓPTICAS · CLIENTES</text>
+
+                  <rect x="135" y="130" width="150" height="46" rx="10" fill="#11131A" stroke="url(#g-line)"/>
+                  <text x="210" y="151" fill="#F4F4F5" font-size="11">API</text>
+                  <text x="210" y="166" fill="#9295A1" font-size="9">multi-cliente</text>
+
+                  <rect x="40" y="225" width="150" height="44" rx="10" fill="#11131A" stroke="rgba(255,255,255,.14)"/>
+                  <text x="115" y="251" fill="#C9CBD3">lógica de negocio</text>
+                  <rect x="230" y="225" width="150" height="44" rx="10" fill="#11131A" stroke="rgba(255,255,255,.14)"/>
+                  <text x="305" y="251" fill="#C9CBD3">usuarios y roles</text>
+
+                  <ellipse cx="210" cy="312" rx="62" ry="10" fill="#171A23" stroke="rgba(255,255,255,.18)"/>
+                  <path d="M148 312 V346 A62 10 0 0 0 272 346 V312" fill="#171A23" stroke="rgba(255,255,255,.18)"/>
+                  <ellipse cx="210" cy="312" rx="62" ry="10" fill="#1d2130" stroke="rgba(255,255,255,.18)"/>
+                  <text x="210" y="338" fill="#C9CBD3">base de datos</text>
+                </g>
+                <!-- Paquetes de datos -->
+                <g>
+                  <circle r="2.6" fill="#8B5CF6"><animateMotion dur="2.8s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
+                  <circle r="2.6" fill="#8B5CF6"><animateMotion dur="3.4s" begin="-1.1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
+                  <circle r="2.6" fill="#8B5CF6"><animateMotion dur="2.4s" begin="-.6s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
+                  <circle r="2.6" fill="#8B5CF6"><animateMotion dur="3.1s" begin="-2s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
+                  <circle r="2.6" fill="#8B5CF6"><animateMotion dur="2.9s" begin="-1.6s" repeatCount="indefinite"><mpath href="#p5"/></animateMotion></circle>
+                  <circle r="2.6" fill="#38BDF8"><animateMotion dur="2.2s" repeatCount="indefinite"><mpath href="#p6"/></animateMotion></circle>
+                  <circle r="2.6" fill="#38BDF8"><animateMotion dur="2.6s" begin="-1s" repeatCount="indefinite"><mpath href="#p7"/></animateMotion></circle>
+                  <circle r="2.6" fill="#38BDF8"><animateMotion dur="2s" begin="-.4s" repeatCount="indefinite"><mpath href="#p8"/></animateMotion></circle>
+                  <circle r="2.6" fill="#38BDF8"><animateMotion dur="2.3s" begin="-1.3s" repeatCount="indefinite"><mpath href="#p9"/></animateMotion></circle>
+                </g>
+              </svg>
+              <figcaption class="flex items-center justify-between border-t border-line px-4 py-3 font-mono text-[11px] text-muted">
+                <span class="flex items-center gap-2 text-cyan"><span class="pulse"></span>producción</span>
+                <span>diagrama ilustrativo</span>
+              </figcaption>
+            </figure>
           </div>
         </div>
 
-        <!-- Mockup OptiCore -->
-        <div class="reveal relative mx-auto mt-16 max-w-5xl sm:mt-20" data-delay="2">
-          <div class="absolute -inset-x-10 -bottom-10 top-10 rounded-[3rem] bg-sky/10 blur-3xl"></div>
+        <!-- Actividad profesional -->
+        <div class="reveal mt-20 border-t border-line lg:mt-28" data-delay="1">
+          <dl class="grid grid-cols-2 lg:grid-cols-4">
+            <div class="border-b border-r border-line py-7 pr-4 lg:border-b-0 lg:px-6 lg:first:pl-0">
+              <dt class="label">OPTICORE</dt>
+              <dd class="mt-3 flex items-baseline gap-2"><span class="text-4xl font-semibold tracking-tight sm:text-5xl" data-count="5">5</span><span class="text-sm text-muted">ópticas en producción</span></dd>
+            </div>
+            <div class="border-b border-line py-7 pl-4 lg:border-b-0 lg:border-r lg:px-6">
+              <dt class="label">Producto propio</dt>
+              <dd class="mt-3 text-xl font-semibold tracking-tight sm:text-2xl">SaaS en renta</dd>
+              <dd class="mt-1 text-sm text-muted">modelo de suscripción</dd>
+            </div>
+            <div class="border-r border-line py-7 pr-4 lg:px-6">
+              <dt class="label">Formación</dt>
+              <dd class="mt-3 text-xl font-semibold tracking-tight sm:text-2xl">Ing. titulado</dd>
+              <dd class="mt-1 text-sm text-muted">con cédula profesional</dd>
+            </div>
+            <div class="py-7 pl-4 lg:px-6 lg:pr-0">
+              <dt class="label">Sector público</dt>
+              <dd class="mt-3 text-xl font-semibold tracking-tight sm:text-2xl">Sistemas institucionales</dd>
+              <dd class="mt-1 text-sm text-muted">Colegio de Bachilleres</dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
 
-          <div class="relative overflow-hidden rounded-2xl border border-line/60 bg-card shadow-2xl shadow-black/60 sm:rounded-3xl">
-            <div class="flex items-center gap-2 border-b border-line/40 bg-ink/50 px-4 py-3">
-              <span class="h-2.5 w-2.5 rounded-full bg-line"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-line"></span>
-              <span class="h-2.5 w-2.5 rounded-full bg-line"></span>
-              <div class="ml-3 flex-1 truncate rounded-md bg-ink/70 px-3 py-1 text-[11px] text-white/40 sm:max-w-xs">app.opticore.mx/sucursal/centro</div>
+    <!-- ============ SOBRE MÍ ============ -->
+    <section id="sobre-mi" class="relative scroll-mt-16 py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-14 lg:grid-cols-12 lg:gap-10">
+          <div class="lg:col-span-4">
+            <p class="reveal label">01 — Sobre mí</p>
+            <figure class="reveal relative mt-8 max-w-[340px] overflow-hidden rounded-2xl border border-line bg-surface" data-delay="1">
+              <img src="img/arturo-ceo.jpg" alt="Arturo Núñez Cruz" width="900" height="1125" loading="lazy" decoding="async" class="aspect-[4/5] h-auto w-full object-cover grayscale-[20%]" style="object-position:50% 20%">
+              <figcaption class="absolute inset-x-0 bottom-0 flex items-end justify-between bg-gradient-to-t from-base/95 via-base/50 to-transparent p-4 pt-16">
+                <span><span class="block text-sm font-medium">Arturo Núñez Cruz</span><span class="block font-mono text-[11px] text-muted">CDMX · México</span></span>
+                <span class="font-mono text-[11px] text-muted">ISC</span>
+              </figcaption>
+            </figure>
+          </div>
+
+          <div class="lg:col-span-8 lg:pt-14">
+            <h2 class="reveal section-title text-balance" data-delay="1">
+              Ingeniero que piensa en <span class="serif font-normal text-violet">el negocio</span>, no solo en el código.
+            </h2>
+
+            <div class="reveal mt-10 grid gap-8 text-lg leading-relaxed text-muted md:grid-cols-2" data-delay="2">
+              <p class="text-pretty">Soy <span class="text-fg">Ingeniero en Sistemas Computacionales</span>, titulado y con cédula profesional. Mi enfoque está en el desarrollo de aplicaciones web, backend, sistemas empresariales y creación de productos tecnológicos.</p>
+              <p class="text-pretty">Me interesa desarrollar soluciones que no solamente funcionen técnicamente, sino que <span class="text-fg">resuelvan necesidades reales de negocios</span>. He trabajado con sistemas institucionales, bases de datos, automatización de procesos y desarrollo de software comercial.</p>
             </div>
 
-            <div class="flex">
-              <aside class="hidden w-52 shrink-0 border-r border-line/40 bg-ink/40 p-4 sm:block">
-                <div class="mb-6 flex items-center gap-2 font-display text-sm font-bold text-white">
-                  <img src="img/logo-opticore.png" alt="" class="h-7 w-7 rounded-lg bg-white">
-                  OptiCore
+            <a href="#opticore" class="reveal spotlight group mt-12 flex flex-col gap-5 rounded-2xl border border-line bg-surface p-6 transition hover:border-white/20 sm:flex-row sm:items-center sm:justify-between sm:p-7" data-delay="3">
+              <div class="flex items-center gap-4">
+                <img src="img/logo-opticore.png" alt="" width="256" height="256" loading="lazy" class="h-12 w-12 rounded-xl bg-white p-1">
+                <div>
+                  <p class="text-fg">Actualmente: <span class="font-semibold">OPTICORE</span></p>
+                  <p class="text-sm text-muted">Mi producto SaaS propio, en producción y usado por cinco ópticas mediante suscripción.</p>
                 </div>
-                <ul class="space-y-1 text-xs">
-                  <li class="flex items-center gap-2 rounded-lg bg-sky/10 px-3 py-2 font-medium text-sky"><span class="h-1.5 w-1.5 rounded-full bg-sky"></span>Dashboard</li>
-                  <li class="flex items-center gap-2 rounded-lg px-3 py-2 text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-line"></span>Pacientes</li>
-                  <li class="flex items-center gap-2 rounded-lg px-3 py-2 text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-line"></span>Recetas</li>
-                  <li class="flex items-center gap-2 rounded-lg px-3 py-2 text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-line"></span>Ventas / POS</li>
-                  <li class="flex items-center gap-2 rounded-lg px-3 py-2 text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-line"></span>Inventario</li>
-                  <li class="flex items-center gap-2 rounded-lg px-3 py-2 text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-line"></span>Agenda</li>
-                  <li class="flex items-center gap-2 rounded-lg px-3 py-2 text-white/50"><span class="h-1.5 w-1.5 rounded-full bg-line"></span>Sucursales</li>
-                </ul>
-                <div class="mt-6 rounded-lg border border-line/40 bg-card/60 p-3 text-[10px]">
-                  <p class="text-white/40">Rol</p>
-                  <p class="font-semibold text-champ">Gerente de sucursal</p>
-                </div>
-              </aside>
+              </div>
+              <span class="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-sm text-fg">Ver proyecto <svg class="h-4 w-4 transition group-hover:translate-x-1"><use href="#i-arrow"/></svg></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
 
-              <div class="min-w-0 flex-1 p-4 sm:p-6">
-                <div class="mb-5 flex items-center justify-between gap-3">
-                  <div class="min-w-0">
-                    <p class="text-[11px] text-white/40">Buenos días 👋</p>
-                    <p class="font-display text-sm font-semibold text-white sm:text-base">Resumen de hoy · Sucursal Centro</p>
-                  </div>
-                  <span class="shrink-0 whitespace-nowrap rounded-full bg-cta px-3 py-1.5 text-[10px] font-semibold text-white sm:text-xs">+ Nueva receta</span>
-                </div>
+    <!-- ============ PROYECTOS ============ -->
+    <section id="proyectos" class="relative scroll-mt-16 pb-24 sm:pb-32 lg:pb-40">
+      <div class="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <div class="reveal flex flex-col gap-6 border-t border-line pt-10 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <p class="label">02 — Proyectos destacados</p>
+            <h2 class="section-title mt-5">Software en el <span class="serif font-normal text-violet">mundo real.</span></h2>
+          </div>
+          <p class="max-w-sm text-muted">Un producto comercial propio, un sistema institucional y un sistema empresarial a la medida.</p>
+        </div>
 
-                <div class="grid grid-cols-2 gap-3 lg:grid-cols-4">
-                  <div class="rounded-xl border border-line/40 bg-ink/50 p-3">
-                    <p class="text-[10px] uppercase tracking-wider text-white/40">Ventas hoy</p>
-                    <p class="mt-1 font-display text-lg font-bold text-white sm:text-xl">$18,450</p>
-                    <p class="text-[10px] font-medium text-sky">▲ 12% vs ayer</p>
-                  </div>
-                  <div class="rounded-xl border border-line/40 bg-ink/50 p-3">
-                    <p class="text-[10px] uppercase tracking-wider text-white/40">Recetas</p>
-                    <p class="mt-1 font-display text-lg font-bold text-white sm:text-xl">27</p>
-                    <p class="text-[10px] font-medium text-sky">~20 seg c/u</p>
-                  </div>
-                  <div class="rounded-xl border border-line/40 bg-ink/50 p-3">
-                    <p class="text-[10px] uppercase tracking-wider text-white/40">Pacientes</p>
-                    <p class="mt-1 font-display text-lg font-bold text-white sm:text-xl">1,284</p>
-                    <p class="text-[10px] font-medium text-champ">+9 nuevos</p>
-                  </div>
-                  <div class="rounded-xl border border-line/40 bg-ink/50 p-3">
-                    <p class="text-[10px] uppercase tracking-wider text-white/40">Exámenes</p>
-                    <p class="mt-1 font-display text-lg font-bold text-white sm:text-xl">8</p>
-                    <p class="text-[10px] font-medium text-champ">agendados hoy</p>
-                  </div>
-                </div>
+        <!-- 01 · OPTICORE -->
+        <article id="opticore" class="project reveal spotlight mt-16 scroll-mt-24 overflow-hidden rounded-3xl border border-line bg-surface sm:mt-20">
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-line px-5 py-4 sm:px-8">
+            <span class="project-index text-xs">01 / SaaS · Producto comercial</span>
+            <span class="inline-flex items-center gap-2 rounded-full border border-cyan/30 bg-cyan/10 px-3 py-1 font-mono text-[11px] text-cyan"><span class="pulse"></span>En producción</span>
+          </div>
 
-                <div class="mt-3 grid gap-3 lg:grid-cols-5">
-                  <div class="rounded-xl border border-line/40 bg-ink/50 p-4 lg:col-span-2">
-                    <div class="mb-3 flex items-center justify-between">
-                      <p class="text-xs font-semibold text-white">Ventas de la semana</p>
-                      <p class="text-[10px] text-white/40">Lun – Dom</p>
-                    </div>
-                    <div class="flex h-28 items-end gap-2 sm:h-36">
-                      <div class="flex-1 rounded-t-md bg-line/70" style="height:45%"></div>
-                      <div class="flex-1 rounded-t-md bg-line/70" style="height:62%"></div>
-                      <div class="flex-1 rounded-t-md bg-line/70" style="height:50%"></div>
-                      <div class="flex-1 rounded-t-md bg-line/70" style="height:78%"></div>
-                      <div class="flex-1 rounded-t-md bg-line/70" style="height:66%"></div>
-                      <div class="flex-1 rounded-t-md bg-gradient-to-t from-sky to-champ" style="height:96%"></div>
-                      <div class="flex-1 rounded-t-md bg-line/70" style="height:58%"></div>
-                    </div>
-                  </div>
+          <div class="grid lg:grid-cols-12">
+            <div class="p-6 sm:p-10 lg:col-span-5 lg:border-r lg:border-line lg:p-12">
+              <div class="flex items-center gap-3">
+                <img src="img/logo-opticore.png" alt="Logo de OPTICORE" width="256" height="256" loading="lazy" class="h-11 w-11 rounded-xl bg-white p-1">
+                <h3 class="text-4xl font-semibold tracking-tight sm:text-5xl">OPTICORE</h3>
+              </div>
+              <p class="mt-6 text-lg leading-relaxed text-muted">Plataforma SaaS especializada en la administración y operación de ópticas. Es mi producto tecnológico propio y se comercializa mediante un modelo de renta.</p>
 
-                  <div class="hidden rounded-xl border border-line/40 bg-ink/50 p-4 sm:block lg:col-span-3">
-                    <div class="mb-3 flex items-center justify-between">
-                      <p class="text-xs font-semibold text-white">Receta · Ana López</p>
-                      <span class="rounded-full bg-sky/10 px-2 py-0.5 text-[10px] font-medium text-sky">Guardada en 18 s</span>
+              <div class="mt-10 flex items-end gap-5 border-y border-line py-7">
+                <span class="text-[5.5rem] font-semibold leading-[.8] tracking-[-.06em] text-fg sm:text-[7rem]" data-count="5" data-pad="2">05</span>
+                <span class="pb-1 text-sm leading-snug text-muted">ópticas usando<br>OPTICORE en producción</span>
+              </div>
+
+              <ul class="mt-8 space-y-3 text-[15px] text-[#D4D5DB]">
+                <li class="flex gap-3"><svg class="mt-1 h-4 w-4 shrink-0 text-violet"><use href="#i-check"/></svg>Producto propio, de la idea a producción</li>
+                <li class="flex gap-3"><svg class="mt-1 h-4 w-4 shrink-0 text-violet"><use href="#i-check"/></svg>Desarrollo de software comercial</li>
+                <li class="flex gap-3"><svg class="mt-1 h-4 w-4 shrink-0 text-violet"><use href="#i-check"/></svg>Implementación con clientes reales</li>
+                <li class="flex gap-3"><svg class="mt-1 h-4 w-4 shrink-0 text-violet"><use href="#i-check"/></svg>Enfoque especializado en el sector óptico</li>
+                <li class="flex gap-3"><svg class="mt-1 h-4 w-4 shrink-0 text-violet"><use href="#i-check"/></svg>Evolución y mantenimiento continuo del producto</li>
+              </ul>
+
+              <a href="#" data-wa="Hola Arturo, vi tu portafolio y me interesa OPTICORE para mi óptica." class="btn btn-primary mt-10 w-full sm:w-auto">
+                Conocer OPTICORE
+                <svg class="arrow h-4 w-4"><use href="#i-arrow"/></svg>
+              </a>
+            </div>
+
+            <!-- Mockup ilustrativo OPTICORE -->
+            <div class="relative overflow-hidden bg-base/60 p-5 sm:p-10 lg:col-span-7 lg:p-12">
+              <div class="aura pointer-events-none absolute -right-20 -top-20 h-80 w-80"></div>
+              <div class="project-media mock relative">
+                <div class="mock-bar"><i></i><i></i><i></i><span class="ml-2 truncate font-mono text-[11px] text-muted">opticore · panel</span></div>
+                <div class="flex">
+                  <div class="hidden w-40 shrink-0 space-y-3 border-r border-line p-4 sm:block">
+                    <div class="flex items-center gap-2 pb-2"><img src="img/logo-opticore.png" alt="" class="h-6 w-6 rounded-md bg-white p-0.5" loading="lazy"><span class="font-mono text-[11px]">OPTICORE</span></div>
+                    <div class="skel skel-strong w-24"></div><div class="skel w-20"></div><div class="skel w-28"></div><div class="skel w-16"></div><div class="skel w-24"></div><div class="skel w-20"></div>
+                  </div>
+                  <div class="min-w-0 flex-1 p-4 sm:p-5">
+                    <p class="font-mono text-[10px] uppercase tracking-wider text-muted">Ópticas en producción</p>
+                    <div class="mt-3 grid grid-cols-5 gap-2">
+                      <div class="rounded-lg border border-line bg-raised p-2 text-center"><span class="mx-auto mb-1.5 block h-1.5 w-1.5 rounded-full bg-cyan"></span><span class="font-mono text-[10px] text-fg">01</span></div>
+                      <div class="rounded-lg border border-line bg-raised p-2 text-center"><span class="mx-auto mb-1.5 block h-1.5 w-1.5 rounded-full bg-cyan"></span><span class="font-mono text-[10px] text-fg">02</span></div>
+                      <div class="rounded-lg border border-line bg-raised p-2 text-center"><span class="mx-auto mb-1.5 block h-1.5 w-1.5 rounded-full bg-cyan"></span><span class="font-mono text-[10px] text-fg">03</span></div>
+                      <div class="rounded-lg border border-line bg-raised p-2 text-center"><span class="mx-auto mb-1.5 block h-1.5 w-1.5 rounded-full bg-cyan"></span><span class="font-mono text-[10px] text-fg">04</span></div>
+                      <div class="rounded-lg border border-line bg-raised p-2 text-center"><span class="mx-auto mb-1.5 block h-1.5 w-1.5 rounded-full bg-cyan"></span><span class="font-mono text-[10px] text-fg">05</span></div>
                     </div>
-                    <div class="overflow-hidden rounded-lg border border-line/40 text-[10px]">
-                      <div class="grid grid-cols-6 bg-card px-2 py-1.5 font-semibold text-white/50"><span></span><span>ESF</span><span>CIL</span><span>EJE</span><span>ADD</span><span>DP</span></div>
-                      <div class="grid grid-cols-6 px-2 py-1.5 text-white/80"><span class="font-semibold text-sky">OD</span><span>-1.75</span><span>-0.50</span><span>180°</span><span>+1.50</span><span>31</span></div>
-                      <div class="grid grid-cols-6 border-t border-line/40 px-2 py-1.5 text-white/80"><span class="font-semibold text-sky">OI</span><span>-2.00</span><span>-0.75</span><span>175°</span><span>+1.50</span><span>32</span></div>
+                    <div class="mt-4 grid grid-cols-2 gap-3">
+                      <div class="space-y-2.5 rounded-xl border border-line bg-raised p-4"><div class="skel w-1/2"></div><div class="skel skel-strong h-3 w-3/4"></div><div class="skel w-2/3"></div></div>
+                      <div class="space-y-2.5 rounded-xl border border-line bg-raised p-4"><div class="skel w-1/3"></div><div class="skel skel-strong h-3 w-2/3"></div><div class="skel w-1/2"></div></div>
                     </div>
-                    <div class="mt-3 flex items-center justify-between text-[10px]">
-                      <span class="text-white/50">Progresivo · Antirreflejante + Blue</span>
-                      <span class="font-semibold text-champ">$4,890</span>
+                    <div class="mt-3 rounded-xl border border-line bg-raised p-4">
+                      <div class="bars flex h-24 items-end gap-2 sm:h-28">
+                        <span style="height:40%"></span><span style="height:58%"></span><span style="height:46%"></span><span style="height:72%"></span><span style="height:60%"></span><span style="height:88%;background:linear-gradient(#8B5CF6,#38BDF8)"></span><span style="height:66%"></span><span style="height:52%"></span>
+                      </div>
+                    </div>
+                    <div class="mt-3 space-y-2 rounded-xl border border-line bg-raised p-4">
+                      <div class="flex gap-3"><div class="skel w-1/4"></div><div class="skel w-1/3"></div><div class="skel ml-auto w-12"></div></div>
+                      <div class="flex gap-3"><div class="skel w-1/5"></div><div class="skel w-1/4"></div><div class="skel ml-auto w-10"></div></div>
+                      <div class="flex gap-3"><div class="skel w-1/4"></div><div class="skel w-1/5"></div><div class="skel ml-auto w-14"></div></div>
                     </div>
                   </div>
                 </div>
               </div>
+              <p class="mt-4 text-right font-mono text-[11px] text-muted">Interfaz ilustrativa · no es captura del producto</p>
             </div>
-          </div>
-
-          <div class="float absolute -bottom-6 -left-2 hidden items-center gap-3 rounded-2xl border border-line/60 bg-card/95 px-4 py-3 shadow-xl backdrop-blur sm:flex lg:-left-10">
-            <span class="grid h-10 w-10 place-items-center rounded-xl bg-champ/15 text-champ">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
-            </span>
-            <div><p class="font-display text-sm font-bold text-white">20 segundos</p><p class="text-xs text-white/50">por receta capturada</p></div>
-          </div>
-          <div class="float absolute -right-2 -top-6 hidden items-center gap-3 rounded-2xl border border-line/60 bg-card/95 px-4 py-3 shadow-xl backdrop-blur sm:flex lg:-right-10" style="animation-delay:-3.5s">
-            <span class="grid h-10 w-10 place-items-center rounded-xl bg-sky/15 text-sky">
-              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6"/></svg>
-            </span>
-            <div><p class="font-display text-sm font-bold text-white">10 sucursales</p><p class="text-xs text-white/50">operando en una cadena real</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SERVICIOS ============ -->
-    <section id="servicios" class="relative scroll-mt-20 py-20 sm:py-28">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="eyebrow">Servicios</p>
-          <h2 class="section-title">Lo que puedo hacer por tu negocio</h2>
-          <p class="mt-4 text-base text-white/60 sm:text-lg">No vendo código, vendo sistemas que ya viví en mostrador.</p>
-        </div>
-
-        <div class="mt-14 grid gap-6 md:grid-cols-3 lg:gap-8">
-          <article class="reveal card card-hover flex flex-col rounded-3xl p-7 sm:p-8" data-delay="1">
-            <span class="icon-tile text-champ">
-              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-            </span>
-            <h3 class="mt-6 font-display text-xl font-semibold text-white sm:text-2xl">Landing que vende</h3>
-            <p class="mt-3 flex-1 leading-relaxed text-white/60">Para ópticas y negocios locales que necesitan clientes ya. Una sola página directa, rápida y enfocada en que te escriban por WhatsApp.</p>
-            <ul class="mt-6 space-y-2.5 text-sm text-white/80">
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Botón directo a WhatsApp</li>
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Lista para anuncios de Instagram</li>
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Entrega rápida</li>
-            </ul>
-            <div class="mt-8 border-t border-line/40 pt-6">
-              <p class="text-sm text-white/45">Desde</p>
-              <p class="font-display text-3xl font-bold text-white">$3,500 <span class="text-base font-medium text-white/45">MXN</span></p>
-              <a href="#cotizar" data-service="Landing" class="btn-cta mt-5 block rounded-full py-3.5 text-center font-semibold text-white">Cotizar</a>
-            </div>
-          </article>
-
-          <article class="reveal card card-hover card-featured relative flex flex-col rounded-3xl p-7 sm:p-8" data-delay="2">
-            <span class="absolute -top-3 right-7 rounded-full bg-sky px-3 py-1 text-xs font-bold text-ink">Más pedido</span>
-            <span class="icon-tile text-sky">
-              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4M2 8h20"/></svg>
-            </span>
-            <h3 class="mt-6 font-display text-xl font-semibold text-white sm:text-2xl">Página completa / Portafolio</h3>
-            <p class="mt-3 flex-1 leading-relaxed text-white/60">Para marcas que quieren verse profesionales. Varias secciones, tu historia, tus productos y una imagen que inspire confianza.</p>
-            <ul class="mt-6 space-y-2.5 text-sm text-white/80">
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Diseño premium a tu medida</li>
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Catálogo, galería y reseñas</li>
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Optimizada para Google</li>
-            </ul>
-            <div class="mt-8 border-t border-line/40 pt-6">
-              <p class="text-sm text-white/45">Desde</p>
-              <p class="font-display text-3xl font-bold text-white">$7,000 <span class="text-base font-medium text-white/45">MXN</span></p>
-              <a href="#cotizar" data-service="Página completa" class="btn-cta mt-5 block rounded-full py-3.5 text-center font-semibold text-white">Cotizar</a>
-            </div>
-          </article>
-
-          <article class="reveal card card-hover flex flex-col rounded-3xl p-7 sm:p-8" data-delay="3">
-            <span class="icon-tile text-champ">
-              <svg class="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/><path d="M3 12c0 1.66 4 3 9 3s9-1.34 9-3"/></svg>
-            </span>
-            <h3 class="mt-6 font-display text-xl font-semibold text-white sm:text-2xl">Sistema a medida</h3>
-            <p class="mt-3 flex-1 leading-relaxed text-white/60">Como OptiCore: recetas, pacientes, ventas y sucursales. Software hecho exactamente para cómo trabaja tu negocio.</p>
-            <ul class="mt-6 space-y-2.5 text-sm text-white/80">
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Adiós al papel y al Excel</li>
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Roles por usuario y multi-sucursal</li>
-              <li class="flex gap-2"><svg class="mt-0.5 h-4 w-4 shrink-0 text-sky"><use href="#i-check"/></svg>Migración de tu sistema viejo</li>
-            </ul>
-            <div class="mt-8 border-t border-line/40 pt-6">
-              <p class="text-sm text-white/45">Precio</p>
-              <p class="font-display text-3xl font-bold text-white">Cotización <span class="text-champ">personalizada</span></p>
-              <a href="#cotizar" data-service="Sistema a medida" class="btn-cta mt-5 block rounded-full py-3.5 text-center font-semibold text-white">Cotizar</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ TRABAJOS ============ -->
-    <section id="trabajos" class="relative scroll-mt-20 overflow-hidden py-20 sm:py-28">
-      <div class="glow-sky pointer-events-none absolute -left-60 top-20 h-[600px] w-[600px]"></div>
-      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="eyebrow">Trabajos</p>
-          <h2 class="section-title">Proyectos que hablan por mí</h2>
-        </div>
-
-        <!-- OptiCore -->
-        <article class="reveal card mt-14 overflow-hidden rounded-3xl lg:grid lg:grid-cols-2">
-          <div class="relative min-h-[320px] overflow-hidden sm:min-h-[400px]">
-            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-card via-ink to-card">
-              <div class="glow-sky absolute inset-0"></div>
-              <img src="img/logo-opticore.png" alt="Logo de OptiCore" width="256" height="256" class="relative h-24 w-24 rounded-[28px] bg-white shadow-2xl shadow-sky/40 ring-1 ring-white/20 sm:h-28 sm:w-28">
-              <p class="relative mt-6 font-display text-3xl font-bold tracking-tight text-white sm:text-4xl">Opti<span class="text-sky">Core</span></p>
-              <p class="relative mt-2 text-sm uppercase tracking-[.25em] text-champ/80">SaaS para ópticas</p>
-              <div class="relative mt-8 h-1 w-32 overflow-hidden rounded-full bg-line/50"><div class="h-full w-2/3 rounded-full bg-gradient-to-r from-sky to-champ"></div></div>
-            </div>
-          </div>
-
-          <div class="relative flex flex-col justify-center p-7 sm:p-10 lg:p-12">
-            <span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-champ/10 px-3 py-1 text-xs font-semibold text-champ ring-1 ring-champ/25"><svg class="h-3.5 w-3.5"><use href="#i-star"/></svg>Proyecto estrella</span>
-            <h3 class="mt-5 flex items-center gap-3 font-display text-3xl font-bold text-white sm:text-4xl"><img src="img/logo-opticore.png" alt="" class="h-10 w-10 rounded-xl bg-white sm:h-11 sm:w-11">OptiCore</h3>
-            <p class="mt-1 text-lg font-medium text-sky">SaaS para Ópticas</p>
-            <p class="mt-5 text-base leading-relaxed text-white/70 sm:text-lg">Recetas en 20 segundos, pacientes, ventas y sucursales en un solo lugar. Diseñado a partir de mi experiencia de 4 años en óptica.</p>
-            <p class="mt-3 text-sm leading-relaxed text-white/50">SaaS multi-tenant que empezó migrando un sistema viejo en PHP (Laminas) de una óptica real. Hoy da servicio a una cadena de 10 sucursales, con la meta de rentarlo a 50 ópticas más.</p>
-
-            <div class="mt-7 grid grid-cols-3 gap-3">
-              <div class="stat"><p class="font-display text-2xl font-bold text-white">20s</p><p class="mt-1 text-xs text-white/45">por receta</p></div>
-              <div class="stat"><p class="font-display text-2xl font-bold text-white">10</p><p class="mt-1 text-xs text-white/45">sucursales</p></div>
-              <div class="stat"><p class="font-display text-2xl font-bold text-champ">50+</p><p class="mt-1 text-xs text-white/45">ópticas meta</p></div>
-            </div>
-
-            <div class="mt-6 flex flex-wrap gap-2">
-              <span class="tag">Multi-tenant</span>
-              <span class="tag">Roles por usuario</span>
-              <span class="tag">Expediente oftálmico</span>
-              <span class="tag">Ventas / POS</span>
-              <span class="tag">Armazones y micas</span>
-              <span class="tag">Agenda de exámenes</span>
-            </div>
-
-            <a href="#" data-wa="Hola Arturo, vi tu página DevsArt y quiero una demo de OptiCore para mi óptica." class="btn-cta mt-8 inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-full px-7 py-4 font-semibold text-white sm:w-fit">
-              Pedir demo de OptiCore
-              <svg class="h-4 w-4"><use href="#i-arrow"/></svg>
-            </a>
           </div>
         </article>
 
-        <div class="mt-6 grid gap-6 md:grid-cols-2 lg:gap-8">
-          <article class="reveal card card-hover group overflow-hidden rounded-3xl" data-delay="1">
-            <div class="img-fallback relative aspect-[16/10] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=1000&q=75" alt="Lentes sobre un libro, landing para óptica" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.style.display='none'">
-              <div class="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent"></div>
-              <span class="absolute left-5 top-5 rounded-full bg-ink/70 px-3 py-1 text-xs font-medium text-sky backdrop-blur">Landing</span>
+        <!-- 02 · SIREC / EXACER -->
+        <article class="project mt-24 grid items-center gap-10 sm:mt-32 lg:grid-cols-12 lg:gap-14">
+          <div class="reveal order-2 lg:order-1 lg:col-span-7">
+            <div class="relative overflow-hidden rounded-3xl border border-line bg-surface p-5 sm:p-10">
+              <div class="aura-cyan pointer-events-none absolute -bottom-24 -left-24 h-80 w-80"></div>
+              <div class="project-media mock relative">
+                <div class="mock-bar"><i></i><i></i><i></i><span class="ml-2 truncate font-mono text-[11px] text-muted">sirec · estadísticas</span></div>
+                <div class="p-4 sm:p-5">
+                  <div class="flex flex-wrap gap-2">
+                    <span class="chip">Aplicación ▾</span><span class="chip">Plantel ▾</span><span class="chip">Estatus ▾</span>
+                  </div>
+                  <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
+                    <div class="rounded-lg border border-line bg-raised p-3"><p class="font-mono text-[10px] text-muted">Registrados</p><div class="skel skel-strong mt-2.5 h-3 w-3/4"></div></div>
+                    <div class="rounded-lg border border-line bg-raised p-3"><p class="font-mono text-[10px] text-muted">Aceptados</p><div class="skel skel-strong mt-2.5 h-3 w-2/3"></div></div>
+                    <div class="rounded-lg border border-line bg-raised p-3"><p class="font-mono text-[10px] text-muted">Asistentes</p><div class="skel skel-strong mt-2.5 h-3 w-1/2"></div></div>
+                    <div class="rounded-lg border border-line bg-raised p-3"><p class="font-mono text-[10px] text-muted">Ausentes</p><div class="skel skel-strong mt-2.5 h-3 w-1/3"></div></div>
+                  </div>
+                  <div class="mt-3 grid gap-3 sm:grid-cols-5">
+                    <div class="rounded-lg border border-line bg-raised p-3 sm:col-span-3">
+                      <div class="bars flex h-24 items-end gap-1.5">
+                        <span style="height:70%;background:rgba(56,189,248,.55)"></span><span style="height:55%"></span><span style="height:82%;background:rgba(56,189,248,.55)"></span><span style="height:64%"></span><span style="height:90%;background:rgba(56,189,248,.55)"></span><span style="height:72%"></span><span style="height:60%;background:rgba(56,189,248,.55)"></span><span style="height:48%"></span>
+                      </div>
+                    </div>
+                    <div class="flex flex-col justify-between gap-2 rounded-lg border border-line bg-raised p-3 sm:col-span-2">
+                      <p class="font-mono text-[10px] text-muted">Confronta CURP</p>
+                      <div class="flex items-center gap-2 rounded-md border border-dashed border-white/15 px-2 py-2 font-mono text-[10px] text-[#C9CBD3]">
+                        <svg class="h-3.5 w-3.5 text-cyan"><use href="#i-file"/></svg>archivo.xlsx
+                      </div>
+                      <div class="skel w-2/3"></div>
+                    </div>
+                  </div>
+                  <div class="mt-3 overflow-hidden rounded-lg border border-line">
+                    <div class="grid grid-cols-4 gap-3 bg-white/[.03] px-3 py-2 font-mono text-[10px] text-muted"><span>CURP</span><span>Aplicación</span><span>Estatus</span><span>Req.</span></div>
+                    <div class="grid grid-cols-4 gap-3 border-t border-line px-3 py-2.5"><div class="skel"></div><div class="skel w-2/3"></div><div class="skel w-1/2"></div><div class="skel w-1/3"></div></div>
+                    <div class="grid grid-cols-4 gap-3 border-t border-line px-3 py-2.5"><div class="skel"></div><div class="skel w-1/2"></div><div class="skel w-2/3"></div><div class="skel w-1/4"></div></div>
+                  </div>
+                </div>
+              </div>
+              <p class="relative mt-4 text-right font-mono text-[11px] text-muted">Interfaz ilustrativa · no es captura del sistema</p>
             </div>
-            <div class="p-7">
-              <h3 class="font-display text-xl font-semibold text-white">Landing para óptica</h3>
-              <p class="mt-2 leading-relaxed text-white/60">Una sola página con promociones de armazones, examen de la vista gratis y citas directas por WhatsApp.</p>
-              <p class="mt-4 text-sm font-medium text-champ">Óptica · CDMX</p>
-            </div>
-          </article>
+          </div>
 
-          <article class="reveal card card-hover group overflow-hidden rounded-3xl" data-delay="2">
-            <div class="img-fallback relative aspect-[16/10] overflow-hidden">
-              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=75" alt="Café latte, página para negocio local" loading="lazy" class="h-full w-full object-cover transition duration-700 group-hover:scale-105" onerror="this.style.display='none'">
-              <div class="absolute inset-0 bg-gradient-to-t from-card via-card/20 to-transparent"></div>
-              <span class="absolute left-5 top-5 rounded-full bg-ink/70 px-3 py-1 text-xs font-medium text-sky backdrop-blur">Página completa</span>
+          <div class="reveal order-1 lg:order-2 lg:col-span-5" data-delay="1">
+            <p class="project-index text-xs">02 / Sistema institucional</p>
+            <h3 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">SIREC <span class="text-muted">/</span> EXACER</h3>
+            <p class="mt-5 text-lg leading-relaxed text-muted">Desarrollado durante mis residencias profesionales en la <span class="text-fg">Dirección General del Colegio de Bachilleres</span>, Departamento de Procesamiento de Datos. Sistemas institucionales, procesamiento de información y bases de datos a escala.</p>
+
+            <ul class="mt-8 grid gap-x-6 gap-y-2.5 text-[15px] text-[#D4D5DB] sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-cyan"></span>Módulo de estadísticas</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-cyan"></span>Indicadores de registrados, aceptados, asistentes y ausentes</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-cyan"></span>Gráficas y filtros</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-cyan"></span>Confronta de CURP con archivos Excel y consultas a BD</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-cyan"></span>Historial de aplicaciones</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-cyan"></span>Gestión de sustentantes extranjeros</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-cyan"></span>Requisitos especiales y accesibilidad</li>
+            </ul>
+
+            <div class="mt-8 flex flex-wrap gap-2">
+              <span class="chip">PHP</span><span class="chip">Laminas</span><span class="chip">Oracle SQL</span><span class="chip">JavaScript</span><span class="chip">DataTables</span>
             </div>
-            <div class="p-7">
-              <h3 class="font-display text-xl font-semibold text-white">Página para negocio local</h3>
-              <p class="mt-2 leading-relaxed text-white/60">Sitio completo para cafetería: menú, galería, ubicación en mapa, reseñas y pedidos por WhatsApp.</p>
-              <p class="mt-4 text-sm font-medium text-champ">Cafetería · Remoto</p>
+          </div>
+        </article>
+
+        <!-- 03 · ÓPTICA MORÁN -->
+        <article class="project mt-24 grid items-center gap-10 sm:mt-32 lg:grid-cols-12 lg:gap-14">
+          <div class="reveal lg:col-span-5">
+            <p class="project-index text-xs">03 / Sistema empresarial</p>
+            <h3 class="mt-4 text-4xl font-semibold tracking-tight sm:text-5xl">Óptica Morán</h3>
+            <p class="mt-5 text-lg leading-relaxed text-muted">Sistema web desarrollado para <span class="text-fg">digitalizar los procesos de una óptica</span>: software especializado, construido alrededor de cómo opera un negocio real.</p>
+
+            <ul class="mt-8 grid gap-x-6 gap-y-2.5 text-[15px] text-[#D4D5DB] sm:grid-cols-2">
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Gestión de pacientes</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Expedientes clínicos</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Historial de consultas</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Datos de graduación</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Agudeza visual</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Alturas, DIP y ADD</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Recomendaciones clínicas</li>
+              <li class="flex gap-3"><span class="mt-2.5 h-px w-3 shrink-0 bg-violet"></span>Inventario de armazones</li>
+            </ul>
+
+            <div class="mt-8 flex flex-wrap gap-2">
+              <span class="chip">Vue</span><span class="chip">FastAPI</span><span class="chip">MySQL</span><span class="chip">JavaScript</span><span class="chip">Bootstrap</span><span class="chip">DataTables</span>
             </div>
-          </article>
+            <p class="mt-4 font-mono text-[11px] text-muted">* La migración del backend a FastAPI es una línea de trabajo iniciada.</p>
+          </div>
+
+          <div class="reveal lg:col-span-7" data-delay="1">
+            <div class="relative overflow-hidden rounded-3xl border border-line bg-surface p-5 sm:p-10">
+              <div class="aura pointer-events-none absolute -right-24 -top-24 h-80 w-80"></div>
+              <div class="project-media mock relative">
+                <div class="mock-bar"><i></i><i></i><i></i><span class="ml-2 truncate font-mono text-[11px] text-muted">expediente clínico</span></div>
+                <div class="p-4 sm:p-5">
+                  <div class="flex items-center gap-3">
+                    <span class="h-10 w-10 shrink-0 rounded-full bg-white/10"></span>
+                    <div class="flex-1 space-y-2"><div class="skel skel-strong h-3 w-40 max-w-full"></div><div class="skel w-24"></div></div>
+                    <span class="chip hidden sm:inline-flex">Paciente</span>
+                  </div>
+                  <div class="mt-4 flex gap-4 overflow-hidden border-b border-line font-mono text-[11px] text-muted">
+                    <span class="border-b border-violet pb-2 text-fg">Graduación</span><span class="pb-2">Consultas</span><span class="pb-2">Recomendaciones</span><span class="hidden pb-2 sm:inline">Armazones</span>
+                  </div>
+                  <div class="mt-4 overflow-hidden rounded-lg border border-line">
+                    <div class="grid grid-cols-5 gap-2 bg-white/[.03] px-3 py-2 font-mono text-[10px] text-muted"><span></span><span>AV</span><span>Altura</span><span>DIP</span><span>ADD</span></div>
+                    <div class="grid grid-cols-5 items-center gap-2 border-t border-line px-3 py-2.5"><span class="font-mono text-[10px] text-violet">OD</span><div class="skel"></div><div class="skel w-2/3"></div><div class="skel w-1/2"></div><div class="skel w-2/3"></div></div>
+                    <div class="grid grid-cols-5 items-center gap-2 border-t border-line px-3 py-2.5"><span class="font-mono text-[10px] text-violet">OI</span><div class="skel"></div><div class="skel w-1/2"></div><div class="skel w-2/3"></div><div class="skel w-1/2"></div></div>
+                  </div>
+                  <div class="mt-3 grid grid-cols-3 gap-3">
+                    <div class="space-y-2 rounded-lg border border-line bg-raised p-3"><div class="skel w-2/3"></div><div class="skel w-1/2"></div></div>
+                    <div class="space-y-2 rounded-lg border border-line bg-raised p-3"><div class="skel w-1/2"></div><div class="skel w-3/4"></div></div>
+                    <div class="space-y-2 rounded-lg border border-line bg-raised p-3"><div class="skel w-3/4"></div><div class="skel w-1/3"></div></div>
+                  </div>
+                  <div class="mt-3 space-y-2 rounded-lg border border-line bg-raised p-3">
+                    <p class="font-mono text-[10px] text-muted">Historial de consultas</p>
+                    <div class="flex gap-3"><div class="skel w-16"></div><div class="skel flex-1"></div></div>
+                    <div class="flex gap-3"><div class="skel w-16"></div><div class="skel w-2/3"></div></div>
+                  </div>
+                </div>
+              </div>
+              <p class="relative mt-4 text-right font-mono text-[11px] text-muted">Interfaz ilustrativa · no es captura del sistema</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============ STACK ============ -->
+    <section id="stack" class="relative scroll-mt-16 border-t border-line bg-surface/40 py-24 sm:py-32">
+      <div class="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <div class="reveal grid gap-6 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <p class="label">03 — Stack tecnológico</p>
+            <h2 class="section-title mt-5">Herramientas para <span class="serif font-normal text-violet">construir y operar.</span></h2>
+          </div>
+          <p class="max-w-md self-end text-muted lg:col-span-5 lg:col-start-8">Organizado por capa. Sin porcentajes inventados: lo que uso para llevar sistemas de la base de datos a producción.</p>
+        </div>
+
+        <div class="mt-16 grid gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-3">
+          <div class="reveal bg-base p-7 sm:p-8">
+            <p class="label">Lenguajes</p>
+            <ul class="mt-5">
+              <li class="tech"><img src="img/tech/php-plain.svg" alt="" width="20" height="20" loading="lazy">PHP</li>
+              <li class="tech"><img src="img/tech/python-plain.svg" alt="" width="20" height="20" loading="lazy">Python</li>
+              <li class="tech"><img src="img/tech/javascript-plain.svg" alt="" width="20" height="20" loading="lazy">JavaScript</li>
+              <li class="tech"><img src="img/tech/typescript-plain.svg" alt="" width="20" height="20" loading="lazy">TypeScript</li>
+              <li class="tech"><img src="img/tech/java-plain.svg" alt="" width="20" height="20" loading="lazy">Java</li>
+              <li class="tech"><img src="img/tech/csharp-plain.svg" alt="" width="20" height="20" loading="lazy">C#</li>
+              <li class="tech"><svg class="tech-svg"><use href="#i-db"/></svg>SQL</li>
+            </ul>
+          </div>
+
+          <div class="reveal bg-base p-7 sm:p-8" data-delay="1">
+            <p class="label">Backend</p>
+            <ul class="mt-5">
+              <li class="tech"><span class="tech-mono">Lm</span>Laminas Framework</li>
+              <li class="tech"><img src="img/tech/fastapi-plain.svg" alt="" width="20" height="20" loading="lazy">FastAPI</li>
+              <li class="tech"><img src="img/tech/django-plain.svg" alt="" width="20" height="20" loading="lazy">Django</li>
+            </ul>
+            <p class="label mt-10">Frontend</p>
+            <ul class="mt-5">
+              <li class="tech"><img src="img/tech/html5-plain.svg" alt="" width="20" height="20" loading="lazy">HTML5</li>
+              <li class="tech"><img src="img/tech/css3-plain.svg" alt="" width="20" height="20" loading="lazy">CSS3</li>
+              <li class="tech"><img src="img/tech/javascript-plain.svg" alt="" width="20" height="20" loading="lazy">JavaScript</li>
+              <li class="tech"><img src="img/tech/bootstrap-plain.svg" alt="" width="20" height="20" loading="lazy">Bootstrap</li>
+            </ul>
+          </div>
+
+          <div class="reveal bg-base p-7 sm:p-8" data-delay="2">
+            <p class="label">Bases de datos</p>
+            <ul class="mt-5">
+              <li class="tech"><img src="img/tech/mysql-original.svg" alt="" width="20" height="20" loading="lazy">MySQL</li>
+              <li class="tech"><img src="img/tech/mariadb-original.svg" alt="" width="20" height="20" loading="lazy">MariaDB</li>
+              <li class="tech"><img src="img/tech/postgresql-plain.svg" alt="" width="20" height="20" loading="lazy">PostgreSQL</li>
+              <li class="tech"><img src="img/tech/oracle-original.svg" alt="" width="20" height="20" loading="lazy">Oracle SQL</li>
+              <li class="tech"><img src="img/tech/mongodb-plain.svg" alt="" width="20" height="20" loading="lazy">MongoDB</li>
+              <li class="tech"><img src="img/tech/firebase-plain.svg" alt="" width="20" height="20" loading="lazy">Firebase</li>
+            </ul>
+          </div>
+
+          <div class="reveal bg-base p-7 sm:col-span-2 sm:p-8 lg:col-span-2">
+            <p class="label">Herramientas</p>
+            <ul class="mt-5 grid sm:grid-cols-2 sm:gap-x-10">
+              <li class="tech"><img src="img/tech/git-plain.svg" alt="" width="20" height="20" loading="lazy">Git</li>
+              <li class="tech sm:!border-t-0"><img src="img/tech/github-original.svg" alt="" width="20" height="20" loading="lazy">GitHub</li>
+              <li class="tech"><img src="img/tech/bitbucket-original.svg" alt="" width="20" height="20" loading="lazy">Bitbucket</li>
+              <li class="tech"><img src="img/tech/sourcetree-original.svg" alt="" width="20" height="20" loading="lazy">Sourcetree</li>
+              <li class="tech"><img src="img/tech/docker-plain.svg" alt="" width="20" height="20" loading="lazy">Docker</li>
+              <li class="tech"><img src="img/tech/postman-plain.svg" alt="" width="20" height="20" loading="lazy">Postman</li>
+              <li class="tech"><img src="img/tech/vscode-plain.svg" alt="" width="20" height="20" loading="lazy">VS Code</li>
+              <li class="tech"><span class="tech-mono">NB</span>NetBeans</li>
+              <li class="tech"><span class="tech-mono">ST</span>Sublime Text</li>
+            </ul>
+          </div>
+
+          <div class="reveal flex flex-col bg-base p-7 sm:col-span-2 sm:p-8 lg:col-span-1" data-delay="1">
+            <p class="label">Sistemas</p>
+            <ul class="mt-5">
+              <li class="tech"><img src="img/tech/windows11-original.svg" alt="" width="20" height="20" loading="lazy">Windows</li>
+              <li class="tech"><img src="img/tech/linux-plain.svg" alt="" width="20" height="20" loading="lazy">Linux</li>
+            </ul>
+            <div class="mt-auto pt-10">
+              <p class="label">En exploración</p>
+              <p class="mt-3 text-sm leading-relaxed text-muted">React y Vue forman parte de mis exploraciones y planes de desarrollo.</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ ACERCA DE MÍ ============ -->
-    <section id="acerca" class="relative scroll-mt-20 overflow-hidden py-20 sm:py-28">
-      <div class="mx-auto grid max-w-7xl items-start gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
-        <div class="reveal relative mx-auto w-full max-w-md lg:max-w-none">
-          <div class="absolute -inset-4 rotate-3 rounded-[2.5rem] bg-gradient-to-br from-sky/25 to-champ/15 blur-2xl"></div>
-          <div class="img-fallback relative aspect-[4/5] overflow-hidden rounded-[2rem] ring-1 ring-line/60">
-            <img src="img/arturo-ceo.jpg" alt="Arturo Nuñez Cruz, Desarrollador Full-Stack y Fundador de DevsArt" width="900" height="1125" loading="lazy" class="h-full w-full object-cover object-top">
-            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
-            <div class="absolute bottom-5 left-5 right-5 flex items-center justify-between gap-3 rounded-2xl border border-line/60 bg-ink/75 px-5 py-4 backdrop-blur">
-              <div class="min-w-0"><p class="font-display font-semibold text-white">Arturo Núñez Cruz</p><p class="text-xs text-white/55">Full-Stack · Fundador de DevsArt</p></div>
-              <span class="shrink-0 rounded-full bg-champ/15 px-3 py-1 text-xs font-semibold text-champ">4 años en óptica</span>
+    <!-- ============ EXPERIENCIA ============ -->
+    <section id="experiencia" class="relative scroll-mt-16 py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <div class="grid gap-12 lg:grid-cols-12">
+          <div class="lg:col-span-5">
+            <div class="lg:sticky lg:top-28">
+              <p class="reveal label">04 — Experiencia</p>
+              <h2 class="reveal section-title mt-5 lg:!text-[clamp(2.5rem,4vw,3.75rem)]" data-delay="1">Del requerimiento <span class="serif font-normal text-violet">a producción.</span></h2>
             </div>
           </div>
-        </div>
 
-        <div>
-          <p class="reveal eyebrow">Acerca de mí</p>
-          <h2 class="reveal section-title section-title-left" data-delay="1">Desarrollador Full-Stack y Fundador de <span class="text-champ">DevsArt</span></h2>
-
-          <div class="reveal mt-6 space-y-4 text-base leading-relaxed text-white/70 sm:text-lg" data-delay="2">
-            <p>Soy Arturo Nuñez Cruz, Desarrollador Full-Stack y Fundador de DevsArt, basado en CDMX y trabajando remoto para todo México.</p>
-            <p>Antes de dedicarme al desarrollo, trabajé 4 años en ventas de óptica: atendía pacientes, tomaba recetas y vendía armazones. Ahí vi de primera mano cómo se perdían clientes y dinero por usar papel, Excel y sistemas viejos. No soy un programador de escritorio: esa experiencia en mostrador es la que hoy pongo en cada proyecto.</p>
-            <p>Ya como desarrollador, y con esa experiencia como base, creé <span class="font-semibold text-sky">OptiCore</span>, mi proyecto principal: un SaaS multi-tenant para ópticas en México. Un sistema único que maneja cadenas con varias sucursales, con roles por usuario (super_admin, admin de cadena, gerente de sucursal, vendedor), pacientes, expediente oftálmico completo (receta OD/OI, esfera, cilindro, eje, DP, ADD, tipo de lente), ventas / POS, inventario de armazones y micas, y agenda de exámenes visuales. Empezó migrando un sistema viejo en PHP (Laminas) de una óptica real y ahora da servicio a una cadena de 10 sucursales, con la meta de rentarlo a 50 ópticas más.</p>
-          </div>
-
-          <blockquote class="reveal mt-8 rounded-2xl border-l-4 border-champ bg-card p-5 sm:p-6" data-delay="2">
-            <p class="text-xs font-semibold uppercase tracking-[.2em] text-champ">Mi diferencia</p>
-            <p class="mt-2 font-display text-lg font-semibold leading-snug text-white sm:text-xl">No vendo código, vendo sistemas que ya viví en mostrador. Sé lo que necesita un dueño de negocio porque yo estuve de ese lado.</p>
-          </blockquote>
-
-          <ul class="reveal mt-8 grid gap-3 sm:grid-cols-2" data-delay="3">
-            <li class="flex items-center gap-4 rounded-2xl border border-line/50 bg-card/70 p-4">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-sky/15 text-sky">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-6.5-8-13a8 8 0 0 1 16 0c0 6.5-8 13-8 13z"/><circle cx="12" cy="9" r="3"/></svg>
-              </span>
-              <div><p class="font-semibold text-white">CDMX</p><p class="text-sm text-white/50">Reuniones en persona</p></div>
+          <ol class="lg:col-span-7">
+            <li class="reveal group grid gap-3 border-t border-line py-9 sm:grid-cols-12 sm:gap-6">
+              <span class="project-index text-xs sm:col-span-2 sm:pt-2">01</span>
+              <div class="sm:col-span-10">
+                <p class="label text-cyan">Producto propio</p>
+                <h3 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">OPTICORE · SaaS para ópticas</h3>
+                <p class="mt-3 leading-relaxed text-muted">Desarrollo, implementación con clientes, evolución y mantenimiento de un producto SaaS propio en producción.</p>
+              </div>
             </li>
-            <li class="flex items-center gap-4 rounded-2xl border border-line/50 bg-card/70 p-4">
-              <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-champ/15 text-champ">
-                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg>
-              </span>
-              <div><p class="font-semibold text-white">Remoto para todo México</p><p class="text-sm text-white/50">Videollamada y WhatsApp</p></div>
+            <li class="reveal group grid gap-3 border-t border-line py-9 sm:grid-cols-12 sm:gap-6">
+              <span class="project-index text-xs sm:col-span-2 sm:pt-2">02</span>
+              <div class="sm:col-span-10">
+                <p class="label text-cyan">Desarrollo de software</p>
+                <h3 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">Desarrollo web y mantenimiento de sistemas</h3>
+                <p class="mt-3 leading-relaxed text-muted">Desarrollo de aplicaciones web y mantenimiento de sistemas en operación.</p>
+              </div>
             </li>
-          </ul>
+            <li class="reveal group grid gap-3 border-t border-line py-9 sm:grid-cols-12 sm:gap-6">
+              <span class="project-index text-xs sm:col-span-2 sm:pt-2">03</span>
+              <div class="sm:col-span-10">
+                <p class="label text-cyan">Sistemas institucionales</p>
+                <h3 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">Colegio de Bachilleres</h3>
+                <p class="mt-3 leading-relaxed text-muted">Desarrollo de soluciones en la Dirección General, Departamento de Procesamiento de Datos, durante mis residencias profesionales (SIREC / EXACER).</p>
+              </div>
+            </li>
+            <li class="reveal group grid gap-3 border-t border-line py-9 sm:grid-cols-12 sm:gap-6">
+              <span class="project-index text-xs sm:col-span-2 sm:pt-2">04</span>
+              <div class="sm:col-span-10">
+                <p class="label text-cyan">Datos</p>
+                <h3 class="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">Análisis operativo de datos</h3>
+              </div>
+            </li>
+            <li class="reveal grid gap-3 border-y border-line py-7 sm:grid-cols-12 sm:gap-6">
+              <span class="project-index text-xs sm:col-span-2 sm:pt-1">05</span>
+              <div class="sm:col-span-10">
+                <p class="label">También</p>
+                <p class="mt-2 text-muted"><span class="text-[#D4D5DB]">Soporte técnico de primer nivel y mesa de ayuda</span>, brindando atención a sitios de Elektra a nivel nacional.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
 
-          <div class="reveal mt-8" data-delay="3">
-            <p class="text-sm font-semibold text-white">Stack que manejo</p>
-            <div class="mt-3 flex flex-wrap gap-2">
-              <span class="badge">HTML</span>
-              <span class="badge">Tailwind</span>
-              <span class="badge">JS</span>
-              <span class="badge">Vue 3</span>
-              <span class="badge">React</span>
-              <span class="badge badge-sky">FastAPI</span>
-              <span class="badge badge-sky">Python</span>
-              <span class="badge badge-sky">MySQL</span>
-            </div>
+    <!-- ============ CÓMO TRABAJO ============ -->
+    <section id="como-trabajo" class="relative scroll-mt-16 overflow-hidden border-t border-line py-24 sm:py-32">
+      <div class="aura pointer-events-none absolute -left-40 top-20 h-[520px] w-[520px] opacity-70"></div>
+      <div class="relative mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <p class="reveal label">05 — Cómo trabajo</p>
+        <h2 class="reveal section-title text-balance mt-5 max-w-4xl" data-delay="1">El código es el medio. <span class="serif font-normal text-violet">El problema resuelto</span> es el entregable.</h2>
+
+        <div class="mt-16 grid gap-px overflow-hidden rounded-3xl border border-line bg-line md:grid-cols-2 lg:grid-cols-4">
+          <div class="reveal spotlight bg-base p-7 sm:p-8">
+            <span class="font-mono text-xs text-violet">01</span>
+            <h3 class="mt-10 text-xl font-semibold tracking-tight">Entender el negocio primero</h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-muted">Antes de escribir código, entiendo el proceso: quién lo usa, dónde se pierde tiempo y qué se necesita medir.</p>
+          </div>
+          <div class="reveal spotlight bg-base p-7 sm:p-8" data-delay="1">
+            <span class="font-mono text-xs text-violet">02</span>
+            <h3 class="mt-10 text-xl font-semibold tracking-tight">Datos bien modelados</h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-muted">Una base de datos sólida es la base de todo lo demás: consultas confiables, reportes claros y menos errores.</p>
+          </div>
+          <div class="reveal spotlight bg-base p-7 sm:p-8" data-delay="2">
+            <span class="font-mono text-xs text-violet">03</span>
+            <h3 class="mt-10 text-xl font-semibold tracking-tight">Arquitectura simple y mantenible</h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-muted">Soluciones claras que se pueden mantener y extender, en lugar de complejidad que nadie quiere tocar.</p>
+          </div>
+          <div class="reveal spotlight bg-base p-7 sm:p-8" data-delay="3">
+            <span class="font-mono text-xs text-violet">04</span>
+            <h3 class="mt-10 text-xl font-semibold tracking-tight">Producción y evolución</h3>
+            <p class="mt-3 text-[15px] leading-relaxed text-muted">El trabajo no termina en la entrega: el software se usa, se mide y se mejora con los usuarios reales.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ============ RESEÑAS ============ -->
-    <section id="resenas" class="relative py-20 sm:py-28">
-      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div class="reveal mx-auto max-w-2xl text-center">
-          <p class="eyebrow">Reseñas</p>
-          <h2 class="section-title">Lo que dicen mis clientes</h2>
-        </div>
+    <!-- ============ CONTACTO ============ -->
+    <section id="contacto" class="relative scroll-mt-16 border-t border-line py-24 sm:py-32 lg:py-40">
+      <div class="mx-auto max-w-[1240px] px-4 sm:px-6 lg:px-8">
+        <p class="reveal label">06 — Contacto</p>
+        <h2 class="reveal display text-balance mt-6 max-w-5xl text-[2.6rem] sm:text-6xl lg:text-[5.5rem]" data-delay="1">¿Tienes un proceso que debería ser <span class="serif font-normal text-violet">software?</span></h2>
 
-        <div class="mt-14 grid gap-6 md:grid-cols-3 lg:gap-8">
-          <figure class="reveal card card-hover flex flex-col rounded-3xl p-7 sm:p-8" data-delay="1">
-            <div class="flex gap-1 text-champ"><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg></div>
-            <blockquote class="mt-5 flex-1 leading-relaxed text-white/80">“Antes buscábamos recetas en cuadernos. Con OptiCore encontramos a cualquier paciente en segundos y vemos todas las sucursales desde un solo lugar.”</blockquote>
-            <figcaption class="mt-7 flex items-center gap-3 border-t border-line/40 pt-6">
-              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&h=120&q=80" alt="" loading="lazy" class="img-fallback h-12 w-12 rounded-full object-cover ring-2 ring-line">
-              <div><p class="font-semibold text-white">Laura Méndez</p><p class="text-sm text-white/50">Óptica Visión Clara</p></div>
-            </figcaption>
-          </figure>
-
-          <figure class="reveal card card-hover flex flex-col rounded-3xl p-7 sm:p-8" data-delay="2">
-            <div class="flex gap-1 text-champ"><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg></div>
-            <blockquote class="mt-5 flex-1 leading-relaxed text-white/80">“Mi landing quedó increíble y la semana que la lancé con anuncios de Instagram me escribieron más de 30 personas por WhatsApp.”</blockquote>
-            <figcaption class="mt-7 flex items-center gap-3 border-t border-line/40 pt-6">
-              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&h=120&q=80" alt="" loading="lazy" class="img-fallback h-12 w-12 rounded-full object-cover ring-2 ring-line">
-              <div><p class="font-semibold text-white">Carlos Ramírez</p><p class="text-sm text-white/50">Barbería El Patrón</p></div>
-            </figcaption>
-          </figure>
-
-          <figure class="reveal card card-hover flex flex-col rounded-3xl p-7 sm:p-8" data-delay="3">
-            <div class="flex gap-1 text-champ"><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg><svg class="h-4 w-4"><use href="#i-star"/></svg></div>
-            <blockquote class="mt-5 flex-1 leading-relaxed text-white/80">“Arturo entiende el negocio, no solo el código. Me explicó todo claro, cumplió los tiempos y la página se ve mucho más cara de lo que pagué.”</blockquote>
-            <figcaption class="mt-7 flex items-center gap-3 border-t border-line/40 pt-6">
-              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&h=120&q=80" alt="" loading="lazy" class="img-fallback h-12 w-12 rounded-full object-cover ring-2 ring-line">
-              <div><p class="font-semibold text-white">Sofía Herrera</p><p class="text-sm text-white/50">Café Raíz</p></div>
-            </figcaption>
-          </figure>
-        </div>
-
-        <div class="reveal mt-12 flex flex-col items-center gap-4 text-center" data-delay="1">
-          <p class="text-white/60">¿Ya trabajamos juntos? Tu opinión me ayuda muchísimo.</p>
-          <a href="#" data-wa="Hola Arturo, ya trabajamos juntos y quiero dejarte mi reseña para DevsArt:&#10;&#10;• Nombre:&#10;• Negocio:&#10;• Mi reseña:" class="inline-flex w-full items-center justify-center gap-2.5 rounded-full border border-champ/40 bg-champ/5 px-7 py-4 font-semibold text-champ transition hover:-translate-y-0.5 hover:border-champ hover:bg-champ hover:text-ink sm:w-auto">
-            <svg class="h-5 w-5"><use href="#i-star"/></svg>
-            Déjame tu reseña por WhatsApp
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ COTIZAR ============ -->
-    <section id="cotizar" class="relative scroll-mt-20 overflow-hidden py-20 sm:py-28">
-      <div class="glow-champ pointer-events-none absolute -right-40 top-0 h-[600px] w-[600px]"></div>
-      <div class="glow-sky pointer-events-none absolute -left-40 bottom-0 h-[500px] w-[500px]"></div>
-
-      <div class="relative mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-        <div class="reveal text-center">
-          <p class="eyebrow">Cotizar</p>
-          <h2 class="section-title">Cuéntame de tu proyecto</h2>
-          <p class="mt-4 text-base text-white/60 sm:text-lg">Llena esto en 30 segundos y te respondo por WhatsApp.</p>
-        </div>
-
-        <form id="quoteForm" class="reveal card mt-12 space-y-5 rounded-3xl p-6 sm:p-10" data-delay="1" novalidate>
-          <div>
-            <label for="nombre" class="mb-2 block text-sm font-medium text-white">Nombre</label>
-            <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="¿Cómo te llamas?" class="field w-full rounded-xl px-4 py-3.5 text-base text-white placeholder:text-white/35">
+        <div class="mt-16 grid gap-14 lg:grid-cols-12 lg:gap-16">
+          <!-- Enlaces (configurables en js/main.js → CONFIG) -->
+          <div class="reveal lg:col-span-5" data-delay="1">
+            <nav aria-label="Enlaces de contacto" class="border-b border-line">
+              <a href="#" data-wa="Hola Arturo, vi tu portafolio y me gustaría platicar de un proyecto." class="contact-row">
+                <span class="flex items-center gap-4"><svg class="h-5 w-5 text-muted"><use href="#i-wa"/></svg><span class="text-lg">WhatsApp</span></span>
+                <span class="flex items-center gap-3"><span class="hidden font-mono text-xs text-muted sm:inline">55 6209 4886</span><svg class="arrow h-4 w-4"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+              <a href="#" data-link="email" class="contact-row hidden">
+                <span class="flex items-center gap-4"><svg class="h-5 w-5 text-muted"><use href="#i-mail"/></svg><span class="text-lg">Correo</span></span>
+                <span class="flex items-center gap-3"><span class="hidden font-mono text-xs text-muted sm:inline" data-link-label></span><svg class="arrow h-4 w-4"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+              <a href="#" data-link="github" class="contact-row hidden">
+                <span class="flex items-center gap-4"><svg class="h-5 w-5 text-muted"><use href="#i-github"/></svg><span class="text-lg">GitHub</span></span>
+                <svg class="arrow h-4 w-4"><use href="#i-arrow-ur"/></svg>
+              </a>
+              <a href="#" data-link="linkedin" class="contact-row hidden">
+                <span class="flex items-center gap-4"><svg class="h-5 w-5 text-muted"><use href="#i-linkedin"/></svg><span class="text-lg">LinkedIn</span></span>
+                <svg class="arrow h-4 w-4"><use href="#i-arrow-ur"/></svg>
+              </a>
+              <a href="#" data-link="instagram" class="contact-row hidden">
+                <span class="flex items-center gap-4"><svg class="h-5 w-5 text-muted"><use href="#i-ig"/></svg><span class="text-lg">Instagram</span></span>
+                <span class="flex items-center gap-3"><span class="hidden font-mono text-xs text-muted sm:inline">@arturocruz0</span><svg class="arrow h-4 w-4"><use href="#i-arrow-ur"/></svg></span>
+              </a>
+              <a href="#" data-link="cv" class="contact-row hidden" download>
+                <span class="flex items-center gap-4"><svg class="h-5 w-5 text-muted"><use href="#i-file"/></svg><span class="text-lg">Descargar CV</span></span>
+                <span class="font-mono text-xs text-muted">PDF</span>
+              </a>
+            </nav>
+            <p class="mt-6 font-mono text-xs text-muted">CDMX · Remoto para todo México</p>
           </div>
 
-          <div class="grid gap-5 sm:grid-cols-2">
-            <div>
-              <label for="servicio" class="mb-2 block text-sm font-medium text-white">¿Qué necesitas?</label>
-              <select id="servicio" name="servicio" required class="field w-full rounded-xl px-4 py-3.5 text-base text-white">
-                <option value="" disabled selected>Elige una opción</option>
-                <option>Landing</option>
-                <option>Página completa</option>
-                <option>Sistema a medida</option>
-              </select>
+          <!-- Formulario → WhatsApp -->
+          <form id="quoteForm" class="reveal rounded-3xl border border-line bg-surface p-6 sm:p-9 lg:col-span-7" data-delay="2" novalidate>
+            <div class="flex items-center justify-between">
+              <p class="text-lg font-semibold tracking-tight">Cuéntame de tu proyecto</p>
+              <span class="font-mono text-[11px] text-muted">→ WhatsApp</span>
             </div>
-            <div>
-              <label for="presupuesto" class="mb-2 block text-sm font-medium text-white">Presupuesto</label>
-              <select id="presupuesto" name="presupuesto" required class="field w-full rounded-xl px-4 py-3.5 text-base text-white">
-                <option value="" disabled selected>Elige un rango</option>
-                <option>Menos de $5,000 MXN</option>
-                <option>$5,000 – $10,000 MXN</option>
-                <option>$10,000 – $25,000 MXN</option>
-                <option>Más de $25,000 MXN</option>
-                <option>Aún no lo sé</option>
-              </select>
+            <div class="mt-7 space-y-5">
+              <div>
+                <label for="nombre" class="mb-2 block text-sm text-muted">Nombre</label>
+                <input id="nombre" name="nombre" type="text" autocomplete="name" required placeholder="¿Cómo te llamas?" class="field">
+              </div>
+              <div class="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <label for="servicio" class="mb-2 block text-sm text-muted">¿Qué necesitas?</label>
+                  <select id="servicio" name="servicio" required class="field">
+                    <option value="" disabled selected>Elige una opción</option>
+                    <option>Sistema a medida</option>
+                    <option>Página completa</option>
+                    <option>Landing</option>
+                    <option>OPTICORE para mi óptica</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="presupuesto" class="mb-2 block text-sm text-muted">Presupuesto</label>
+                  <select id="presupuesto" name="presupuesto" required class="field">
+                    <option value="" disabled selected>Elige un rango</option>
+                    <option>Menos de $5,000 MXN</option>
+                    <option>$5,000 – $10,000 MXN</option>
+                    <option>$10,000 – $25,000 MXN</option>
+                    <option>Más de $25,000 MXN</option>
+                    <option>Aún no lo sé</option>
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label for="whatsapp" class="mb-2 block text-sm text-muted">Tu WhatsApp</label>
+                <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required placeholder="55 1234 5678" class="field">
+              </div>
+              <p id="formError" class="hidden rounded-xl border border-violet/40 bg-violet/10 px-4 py-3 text-sm text-fg" role="alert">Por favor llena todos los campos.</p>
+              <button type="submit" class="btn btn-primary w-full">
+                <svg class="h-5 w-5"><use href="#i-wa"/></svg>
+                Enviar por WhatsApp
+              </button>
             </div>
-          </div>
-
-          <div>
-            <label for="whatsapp" class="mb-2 block text-sm font-medium text-white">Tu WhatsApp</label>
-            <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" required placeholder="55 1234 5678" class="field w-full rounded-xl px-4 py-3.5 text-base text-white placeholder:text-white/35">
-          </div>
-
-          <p id="formError" class="hidden rounded-xl bg-cta/10 px-4 py-3 text-sm text-champ ring-1 ring-cta/30">Por favor llena todos los campos.</p>
-
-          <button type="submit" class="btn-cta flex w-full items-center justify-center gap-3 rounded-2xl py-5 text-lg font-bold text-white">
-            <svg class="h-6 w-6"><use href="#i-wa"/></svg>
-            Enviar por WhatsApp
-          </button>
-          <p class="text-center text-xs text-white/40">Respuesta normalmente el mismo día · Sin compromiso</p>
-        </form>
+            <p class="mt-6 border-t border-line pt-5 font-mono text-[11px] leading-relaxed text-muted">Referencia: Landing desde $3,500 MXN · Página completa desde $7,000 MXN · Sistema a medida con cotización personalizada.</p>
+          </form>
+        </div>
       </div>
     </section>
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="border-t border-line/40 bg-[#08102A]">
-    <div class="mx-auto flex max-w-7xl flex-col items-center gap-8 px-4 py-12 sm:px-6 md:flex-row md:justify-between lg:px-8">
-      <a href="#inicio" class="flex shrink-0 items-center" aria-label="DevsArt, ir al inicio">
-        <img src="img/logo-devsart.png" alt="DevsArt · Desarrollo web" width="360" height="120" class="h-10 w-auto sm:h-12">
-      </a>
-
-      <div class="flex flex-wrap items-center justify-center gap-3">
-        <a href="https://instagram.com/arturocruz0" target="_blank" rel="noopener" class="flex items-center gap-2 rounded-full border border-line/60 px-4 py-2.5 text-sm text-white/70 transition hover:border-sky hover:text-sky">
-          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-          @arturocruz0
-        </a>
-        <a href="#" data-wa="Hola Arturo, vi tu página DevsArt." class="flex items-center gap-2 rounded-full border border-line/60 px-4 py-2.5 text-sm text-white/70 transition hover:border-sky hover:text-sky">
-          <svg class="h-5 w-5"><use href="#i-wa"/></svg>
-          WhatsApp
-        </a>
+  <footer class="border-t border-line">
+    <div class="mx-auto flex max-w-[1240px] flex-col gap-8 px-4 py-10 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+      <div class="flex items-center gap-4">
+        <img src="img/logo-devsart.png" alt="DevsArt" width="360" height="120" loading="lazy" class="h-8 w-auto">
+        <span class="h-5 w-px bg-line"></span>
+        <span class="text-sm text-muted">Arturo Núñez Cruz</span>
       </div>
-
-      <p class="text-sm text-white/45">© 2026 DevsArt - Hecho en CDMX</p>
+      <nav class="flex flex-wrap gap-x-6 gap-y-2 text-sm text-muted" aria-label="Pie de página">
+        <a href="#proyectos" class="hover:text-fg">Proyectos</a>
+        <a href="#stack" class="hover:text-fg">Stack</a>
+        <a href="#experiencia" class="hover:text-fg">Experiencia</a>
+        <a href="#contacto" class="hover:text-fg">Contacto</a>
+      </nav>
+      <p class="font-mono text-xs text-muted">© 2026 DevsArt - Hecho en CDMX</p>
     </div>
   </footer>
 
   <!-- WhatsApp flotante (celular) -->
-  <a href="#" data-wa="Hola Arturo, vi tu página DevsArt y quiero cotizar." aria-label="Escribir por WhatsApp" class="btn-cta fixed bottom-5 right-5 z-40 grid h-14 w-14 place-items-center rounded-full text-white md:hidden">
-    <svg class="h-7 w-7"><use href="#i-wa"/></svg>
+  <a href="#" data-wa="Hola Arturo, vi tu portafolio y me gustaría platicar de un proyecto." aria-label="Escribir por WhatsApp" id="waFloat" class="fixed bottom-5 right-5 z-30 grid h-12 w-12 place-items-center rounded-full border border-white/15 bg-raised text-fg shadow-2xl shadow-black transition hover:border-white/30 lg:hidden">
+    <svg class="h-5 w-5"><use href="#i-wa"/></svg>
   </a>
 
   <script src="js/main.js" defer></script>

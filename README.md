@@ -1,6 +1,6 @@
 # DevsArt — Portafolio de Arturo Núñez Cruz
 
-Desarrollador Full-Stack y Fundador de DevsArt · Creador de OptiCore, SaaS para ópticas. CDMX + remoto para todo México.
+Desarrollador de software e Ingeniero en Sistemas Computacionales · Creador de OPTICORE, SaaS para ópticas en producción. CDMX + remoto para todo México.
 
 **En línea:** https://devsart.netlify.app
 
@@ -8,10 +8,10 @@ Desarrollador Full-Stack y Fundador de DevsArt · Creador de OptiCore, SaaS para
 
 ```
 devsart/
-├── index.html      # Toda la página (navbar, hero, servicios, trabajos, acerca, reseñas, cotizar, footer)
+├── index.html      # Toda la página (navbar, hero, sobre mí, proyectos, stack, experiencia, cómo trabajo, contacto, footer)
 ├── css/style.css   # Estilos personalizados (cards, botones, animaciones, formulario)
-├── js/main.js      # WhatsApp, menú móvil, scroll suave, animaciones, formulario de cotización
-├── img/            # Logos, foto, favicon e imagen para compartir
+├── js/main.js      # CONFIG de contacto, menú móvil, scroll suave, animaciones, formulario a WhatsApp
+├── img/            # Logos, foto, favicon, imagen para compartir y tech/ (iconos del stack)
 ├── CLAUDE.md       # Reglas del proyecto y bio para Claude Code
 └── README.md
 ```
@@ -43,22 +43,24 @@ Stack: HTML + Tailwind CSS por CDN + JavaScript vanilla. Sin frameworks ni build
 
 | Qué | Dónde |
 |---|---|
-| Número de WhatsApp | `js/main.js`, constante `WHATSAPP` (actual `525562094886`) |
-| Precios | `index.html`, sección `#servicios` (Landing $3,500 · Página completa $7,000) |
+| WhatsApp, correo, GitHub, LinkedIn, Instagram | `js/main.js`, objeto `CONFIG` (los vacíos se ocultan) |
+| CV descargable | Sube el PDF (ej. `docs/cv-arturo-nunez.pdf`) y pon la ruta en `CONFIG.cv` |
+| Indicador de disponibilidad | `CONFIG.availability`: `'disponible'`, `'limitada'`, `'no-disponible'` o `null` (oculto) |
+| Proyectos | `index.html`, sección `#proyectos` |
+| Precios de referencia | `index.html`, sección `#contacto` |
 | Foto | `img/arturo-ceo.jpg` |
-| Reseñas | `index.html`, sección `#resenas` (son de ejemplo) |
 
 ## Paleta
 
 | Uso | Color |
 |---|---|
-| Fondo | `#0B132B` |
-| Cards | `#1C2541` |
-| Bordes / secundarios | `#3A506B` |
-| Azul primario | `#5BC0DE` |
-| Champagne | `#F4D6B0` |
-| CTA naranja | `#D97706` (hover `#F59E0B`) |
+| Fondo | `#08090D` |
+| Superficie | `#11131A` / elevada `#171A23` |
+| Texto | `#F4F4F5` / secundario `#9295A1` |
+| Acento principal | `#8B5CF6` |
+| Acento secundario | `#38BDF8` |
+| Bordes | `rgba(255,255,255,0.09)` |
 
-Tipografía: Poppins (títulos) + Inter (texto).
+Tipografía: Geist + Geist Mono, con Instrument Serif itálica como acento.
 
 © 2026 DevsArt - Hecho en CDMX
